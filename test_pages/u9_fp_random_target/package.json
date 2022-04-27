@@ -1,0 +1,18 @@
+{
+  "name": "u9_fp_random_target",
+  "version": "1.0.0",
+  "description": "",
+  "main": "u9_fp_random_target.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "algos": "^1.0.8",
+    "algos_sftest": "^1.0.0",
+    "canvas-sketch": "^0.7.4",
+    "canvas-sketch-util": "^1.10.0"
+  }
+}
