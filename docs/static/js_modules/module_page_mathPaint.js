@@ -9,6 +9,7 @@ var pageTarget;
 var pageId = 'mathPaint_page';
 var htmlSource = 'static/html/mathPaint.html';
 var jsSource = 'static/js_modules/content/mathTiles.js';
+var jsElementId = 'maths_paint';
 
 function load_page() {
   console.log(`module_page_mathPaint.js: ${pageId} - loading html: ${htmlSource}`);
@@ -31,7 +32,7 @@ function load_page() {
   .then(function(text) {    
     var script = document.createElement("script");
     script.innerHTML = text;
-    document.getElementById(pageTarget).appendChild(script);
+    document.getElementById(jsElementId).appendChild(script);
     //or
     //document.body.appendChild(script);    
   });
