@@ -1,3 +1,7 @@
+# for osx
+.DS_Store
+.AppleDouble
+
 # Logs
 logs
 *.log
