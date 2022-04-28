@@ -9,6 +9,31 @@
 
 var navButtonsId = 'nav_buttons';
 var navButnCnt = 0;
+var unloadCurrentPageCallback = () => console.log('> - - - NO PAGE IS CURRENTLY LOADED - - - <');
+
+export function setUnloadCurrentPageCallback(cb){
+  unloadCurrentPageCallback = cb;
+}
+
+//<div class="container" id="maths_paint_parent">
+//    dbg_txt
+//    <div class="container" id="maths_paint"></div>    
+//</div>
+export function createHTMLPageContainer(pageTarget, pageId, jsContainerId, dbg_txt=''){
+  var parent = document.createElement("div");
+  parent.classList.add("container");
+  parent.id = pageId;  
+  parent.text = dbg_txt;
+  
+  console.log(`adding ${jsContainerId} to: ${pageId}`);
+  var page = document.createElement("div");
+  page.classList.add("container");
+  page.id = jsContainerId;
+  parent.appendChild(page);
+  
+  console.log(`adding ${pageId} to: ${pageTarget}`);
+  document.getElementById(pageTarget).appendChild(parent);  
+}
 
 export function getContainers(){
   var containers = {};
@@ -28,11 +53,14 @@ export function getContainers(){
 export function addNavbutton(buttonInfo){
   console.log(`navbarMod.js ADDING BUTTON - - - - to ${buttonInfo.alt} - S`);  
   var navbar = document.getElementById(navButtonsId);
-  
-  let callback = buttonInfo.callback;
+    
   let image = buttonInfo.image;
   let alt  = buttonInfo.alt;
-  let text = buttonInfo.text;
+
+  let callback = () => {
+    unloadCurrentPageCallback();
+    buttonInfo.callback();  
+  };
   
   var navButton  = document.createElement('button');
 
