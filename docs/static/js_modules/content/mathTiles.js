@@ -117,12 +117,8 @@ const yTiles = 3;
 const minSpacerSize = 10;
 
 
-
-var targetContainer = document.getElementById('maths_paint');
-console.log(`mathTiles.js targetContainer: ${targetContainer}`);
-
 class Canvas {
-  constructor(parent = targetContainer, width = settings.dimensions[0], height = settings.dimensions[1]) {
+  constructor(parent = document.body, width = settings.dimensions[0], height = settings.dimensions[1]) {
     console.log(`Canvas:\nparent: ${parent} - document.body:${document.body}`);
     this.canvas = document.createElement('canvas');
     this.canvas.width = window.innerWidth;
@@ -332,9 +328,11 @@ const random = (max = 9, min = 0) => {
 };
 
 
+var mathTilesKeepRunningAnimation = true;
+
 //const mathTiles = ({ width = 400, height = 400, parent = document.body, count = 50 } = {}) => {
-const mathTiles = () => {
-  const display = new Canvas();
+const mathTiles = (targetContainer) => {
+  const display = new Canvas(targetContainer);
   const [width, height] = display.getCanvasWH();  
   const mathTiles = [];  
   const [size, spaceX, spaceY] = getOptTileLayoutInfo(width, height, xTiles, yTiles, minSpacerSize);
@@ -395,7 +393,9 @@ const mathTiles = () => {
       cl('rafBuckets');                                                         //
       cl(rafBuckets);                                                           //
     }
+    
+    return mathTilesKeepRunningAnimation;
   });
 };
 
-mathTiles();
+mathTiles(document.getElementById('maths_paint'));
