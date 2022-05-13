@@ -33,7 +33,7 @@
       "sizes": "512x512",
       "type": "image/png"
     }],
-  "start_url": "/unacceptablebehaviour.github.io/js_canvas_IO_docs",
+  "start_url": "/unacceptablebehaviour.github.io/js_canvas_IO_docs/",
   "display": "standalone",
   "orientation": "portrait",
   "prefer_related_applications": false
