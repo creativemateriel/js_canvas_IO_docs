@@ -10,36 +10,36 @@ var pageId = 'home_page_parent';
 var htmlSource = 'static/html/home.html';
 var jsSource = '';//'static/js_modules/content/mathTiles.js';
 var jsContainerId = 'home_page';
+var buttonId = 'b_nav_home';
 
-import {setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
+import {getCurrentPage, setCurrentPage, setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
 
 // tidy up when another button is pressed
 // maybe just hide page
-function unload_page() {
+function unload_page(idOfPressedButton) {
   // are we on the same page if so do nothing!
-  if (document.getElementById(pageTarget).querySelector('.container')) {
-    let currentPage = document.getElementById(pageTarget).querySelector('.container').id;
-    console.log(`module: unload_page\n> pageTarget:${pageTarget} =? id ${currentPage}`);
-    console.log(`HOME: currentPage:${currentPage} =? pageId ${pageId}`);
-    // if (currentPage === pageId) return;
-    // TODO add eventhandler to check which button actaully pressed
+  console.log(`module_page_home.js: ${buttonId} - ${getCurrentPage()} - ${idOfPressedButton}`); 
+  if (getCurrentPage() === idOfPressedButton) {
+    console.log('unload_home: SAME PAGE - DO NOTHING');
+    return;
   }
-  
+
   console.log(`module_page_home.js: ${pageId} - UNLOADING`);    
   // delete page
   document.getElementById(pageTarget).replaceChildren();
 }
 
 function load_page() {
+  // are we on the same page if so do nothing!
+  if (getCurrentPage() === buttonId) {
+    console.log('SAME PAGE - DO NOTHING');
+    return;
+  } else {
+    setCurrentPage(buttonId);
+  }
+  
   console.log(`module_page_home.js: ${pageId} - loading: ${htmlSource}`);
   
-  // are we on the same page if so do nothing!
-  if (document.getElementById(pageTarget).querySelector('.container')) {
-    let currentPage = document.getElementById(pageTarget).querySelector('.container').id;
-    console.log(`> - - module_page_home.js: load_page\n - pageTarget:${pageTarget} - id ${currentPage}`);
-    if (currentPage === pageId) return;
-  }
-
   setUnloadCurrentPageCallback(unload_page);
   
   fetch(htmlSource)
@@ -66,6 +66,7 @@ export function getButtonInfo(containers){
   buttonInfo.image    = 'static/images/svg/home.svg'; // or '' < will use text if no image
   buttonInfo.alt      = 'nutritable';
   buttonInfo.text     = 'NT';
+  buttonInfo.id       =  buttonId;
   
   return buttonInfo;
 }

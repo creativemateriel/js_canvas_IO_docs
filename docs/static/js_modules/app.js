@@ -16,10 +16,9 @@ var containers = navBarMod.getContainers();
 
 //var buttonInfo = pageTable.getButtonInfo(containers);
 //navBarMod.addNavbutton(buttonInfo);
-// order in which they apear on the navbar . .
+// order in which they appear on the navbar . .
 navBarMod.addNavbutton(pageHome.getButtonInfo(containers));
 navBarMod.addNavbutton(pageTracker.getButtonInfo(containers));
 navBarMod.addNavbutton(pageSnap.getButtonInfo(containers));
 navBarMod.addNavbutton(pageWeighIn.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaint.getButtonInfo(containers));
-//navBarMod.addNavbutton(pageMathPaint.getButtonUnloadInfo(containers));

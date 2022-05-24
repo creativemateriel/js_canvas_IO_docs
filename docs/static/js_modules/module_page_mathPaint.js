@@ -5,28 +5,25 @@
   //  var recipes = {{ recipes|tojson }};       // convert info using tojson filter      
   //  console.log(`recipe_t JS ${recipes[0]['ri_name']} - inline CONCLUDED`);  // sanity check      
   //</script>
-import {setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
+import {getCurrentPage, setCurrentPage, setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
   
 var pageTarget;
 var pageId = 'mathPaint_page';
 var htmlSource = 'static/html/mathPaint.html';
 var jsSource = 'static/js_modules/content/mathTiles.js';
 var jsContainerId = 'maths_paint';
-
+var buttonId = 'b_nav_math_tile';
 
 // tidy up when another button is pressed
 // maybe just hide page
-function unload_page() {
+function unload_page(idOfPressedButton) {
   // are we on the same page if so do nothing!
-  if (document.getElementById(pageTarget).querySelector('.container')) {
-    let currentPage = document.getElementById(pageTarget).querySelector('.container').id;
-    console.log(`module_page_mathPaint.js: unload_page\n - pageTarget:${pageTarget} - id ${currentPage}`);
-    console.log(`MATH_TILE: currentPage:${currentPage} =? pageId ${pageId}`);
-    // if (currentPage === pageId) return;
-    // TODO add eventhandler to check which button actaully pressed
+  if (getCurrentPage() === idOfPressedButton) {
+    console.log('unload_math_tiles: SAME PAGE - DO NOTHING');
+    return;
   }
   
-  console.log(`module_page_mathPaint.js: ${pageId} - unloading: stop RAF calls JS: ${jsSource}`);    
+  console.log(`module_page_mathPaint.js: ${buttonId} - unloading: stop RAF calls JS: ${jsSource}`);    
   console.log('run mathTile.js resetRAFcallback: - S');
   
   if (typeof(mathTiles) === 'function') {
@@ -41,11 +38,14 @@ function unload_page() {
 
 function load_page() {
   // are we on the same page if so do nothing!
-  if (document.getElementById(pageTarget).querySelector('.container')) {
-    let currentPage = document.getElementById(pageTarget).querySelector('.container').id;
-    console.log(`> - - module_page_mathPaint.js: load_page\n - pageTarget:${pageTarget} - id ${currentPage}`);
-    if (currentPage === pageId) return;
+  if (getCurrentPage() === buttonId) {
+    console.log('SAME PAGE - DO NOTHING');
+    return;
+  } else {
+    setCurrentPage(buttonId);
   }
+  
+  console.log(`module_page_mathPaint.js: ${buttonId} - loading: ${htmlSource}`);
 
   setUnloadCurrentPageCallback(unload_page);
   
@@ -61,7 +61,11 @@ function load_page() {
   // construct page from JS land - very simple container
   console.log(`module_page_mathPaint.js: ${pageId} - constructing html`);
   createHTMLPageContainer(pageTarget, pageId, jsContainerId, 'mathTiles');
-
+  
+  // fix margin
+  document.getElementById(pageId).style.padding = "0px";
+  document.getElementById(jsContainerId).style.padding = "0px";
+  document.getElementById(pageTarget).style.padding = "0px";
   
   console.log(`module_page_mathPaint.js: ${pageId} - loading JS: ${jsSource}`);
 
@@ -97,6 +101,7 @@ export function getButtonInfo(containers){
   buttonInfo.image    = ''; //'static/images/svg/blank.svg'; // or '' < will use text if no image
   buttonInfo.alt      = 'mathPaint';
   buttonInfo.text     = 'MP';
+  buttonInfo.id       =  buttonId;
   
   return buttonInfo;
 }

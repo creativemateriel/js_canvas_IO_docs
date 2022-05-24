@@ -8,11 +8,17 @@
 // read: https://www.javascript-coder.com/button/javascript-button-p1/
 
 var navButtonsId = 'nav_buttons';
-var navButnCnt = 0;
 var unloadCurrentPageCallback = () => console.log('> - - - NO PAGE IS CURRENTLY LOADED - - - <');
+var currentSelectedPage = 'none';
 
 export function setUnloadCurrentPageCallback(cb){
   unloadCurrentPageCallback = cb;
+}
+export function setCurrentPage(pageId){
+  currentSelectedPage = pageId;
+}
+export function getCurrentPage(){
+  return currentSelectedPage;
 }
 
 //<div class="container" id="maths_paint_parent">
@@ -57,14 +63,15 @@ export function addNavbutton(buttonInfo){
   let image = buttonInfo.image;
   let alt  = buttonInfo.alt;
 
-  let callback = () => {
-    unloadCurrentPageCallback();
+  let callback = (e) => {
+    console.log(`==> NAV btn cb: ${e.currentTarget.id} - ${e.currentTarget} <`);
+    unloadCurrentPageCallback(e.currentTarget.id);
     buttonInfo.callback();  
   };
   
   var navButton  = document.createElement('button');
 
-  navButton.id = `b_nav_${navButnCnt}`;  
+  navButton.id = buttonInfo.id;
   navButton.onclick = callback;
   if (buttonInfo.image !== ''){
     navButton.innerHTML = `<img src="${image}">`; // '<img src="static/images/PNG/balance-scale.png">'  
@@ -74,7 +81,6 @@ export function addNavbutton(buttonInfo){
   
   navbar.appendChild(navButton);
   
-  navButnCnt += 1;
   console.log("navbarMod.js ADDING BUTTON - - - - E");
   
   return(navButton.id)
