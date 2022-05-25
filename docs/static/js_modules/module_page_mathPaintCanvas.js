@@ -8,11 +8,11 @@
 import {getCurrentPage, setCurrentPage, setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
   
 var pageTarget;
-var pageId = 'mathPaint_page';
-var htmlSource = 'static/html/mathPaint.html';
-var jsSource = 'static/js_modules/content/mathTiles.js';
-var jsContainerId = 'maths_paint';
-var buttonId = 'b_nav_math_tile';
+var pageId = 'mathPaintCanvas_page';
+//var htmlSource = 'static/html/mathPaintCanvas.html';
+var jsSource = 'static/js_modules/content/mathTilesCanvas.js';  // switch (to canvas once working
+var jsContainerId = 'maths_paint_canvas';
+var buttonId = 'b_nav_math_tile_canvas';
 
 // tidy up when another button is pressed
 // maybe just hide page
@@ -45,11 +45,9 @@ function load_page() {
     setCurrentPage(buttonId);
   }
   
-  console.log(`module_page_mathPaint.js: ${buttonId} - loading: ${htmlSource}`);
-
   setUnloadCurrentPageCallback(unload_page);
   
-  //console.log(`module_page_mathPaint.js: ${pageId} - loading html: ${htmlSource}`);  
+  //console.log(`module_page_mathPaint.js: ${buttonId} - loading: ${htmlSource}`);
   //fetch(htmlSource)
   //.then(function(response) {
   //  return response.text();
@@ -91,7 +89,7 @@ function load_page() {
 }
 
 export function getButtonInfo(containers){
-  console.log(`module_page_mathPaint.js: registering ${pageId} - to ${containers.main}`);
+  console.log(`module_page_mathPaintCanvas.js: registering ${pageId} - to ${containers.main}`);
   
   pageTarget = containers.main;
   
@@ -99,8 +97,8 @@ export function getButtonInfo(containers){
 
   buttonInfo.callback = load_page;
   buttonInfo.image    = ''; //'static/images/svg/blank.svg'; // or '' < will use text if no image
-  buttonInfo.alt      = 'mathPaint';
-  buttonInfo.text     = 'MP';
+  buttonInfo.alt      = 'mathPaintCanvas';
+  buttonInfo.text     = 'MPC';
   buttonInfo.id       =  buttonId;
   
   return buttonInfo;
