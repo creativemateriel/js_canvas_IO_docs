@@ -19,13 +19,12 @@ let verion_numner_passed_in = '00';
 const CACHE_NAME = `dtk-gitio-cache_${verion_numner_passed_in}`;  // TODO add version number for ServWrkr updates
 
 // run
-// build_cache_file_list.py from project root
+// build_cache_file_list.py from /js_canvas_IO_docs/docs
 // to create updated list
 
-const FILES_TO_CACHE = [
+// dont cache SW - chanes to SW force and update of SW and consequently caches - update version above
 //'/js_canvas_IO_docs/service_worker.js',  // https://stackoverflow.com/questions/55027512/should-i-cache-the-serviceworker-file-in-a-pwa
-  '/js_canvas_IO_docs/',
-  '/js_canvas_IO_docs/index.html',
+const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/offline.html',
   '/js_canvas_IO_docs/static/favicon.ico',
   '/js_canvas_IO_docs/static/manifest.json',
@@ -33,6 +32,7 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/css/styles.css',
   '/js_canvas_IO_docs/static/css/weigh_in.css',
   '/js_canvas_IO_docs/static/images/s&p pork arancini.jpg',
+  '/js_canvas_IO_docs/static/images/20170918_164301_banh_xeo.jpg',
   '/js_canvas_IO_docs/static/images/mathPaint.png',
   '/js_canvas_IO_docs/static/images/20200625_224208_kofte & couscous salad sandwich.jpg',
   '/js_canvas_IO_docs/static/images/svg/cog.svg',
@@ -72,11 +72,13 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/js_modules/navbarMod.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_home.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_tracker.js',
+  '/js_canvas_IO_docs/static/js_modules/module_page_mathPaintCanvas.js',
   '/js_canvas_IO_docs/static/js_modules/dtk_storage.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_blank.js',
   '/js_canvas_IO_docs/static/js_modules/app.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_weigh_in.js',
   '/js_canvas_IO_docs/static/js_modules/content/mathTiles.js',
+  '/js_canvas_IO_docs/static/js_modules/content/mathTilesCanvas.js',
 ];
 
 

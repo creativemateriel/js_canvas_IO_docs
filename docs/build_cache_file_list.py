@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 from pathlib import Path
-
 from pprint import pprint
 
 # source = ''       # when using root - check
@@ -16,13 +15,29 @@ def get_list_of_potential_files_to_cache(search_path, cache_root):
     paths = []
     dir_before_root = str(search_path).split('/')[str(search_path).split('/').index(cache_root)-1]
     
+    print(dir_before_root)
+    print(search_path)
+    
     print('const FILES_TO_CACHE = [')
     
     for p in search_path.glob('**/*'):
-        if p.is_dir() or '.DS_Store' in str(p): continue
+        path = str(p)
+        if 'node_modules' in path or 'scratch' in path or p.is_dir() or '.DS_Store' in path: continue
         comps = str(p).split(dir_before_root)
-        cache_targets = Path(comps[1])
+        cache_targets = Path(comps.pop())
+        #non of comented work - w
+        # root_cache = Path('js_canvas_IO_docs').joinpath(comps.pop() )
+        #root_cache = PurePath('/',repo_name).joinpath(comps.pop())
+        #root_cache = Path('/').joinpath(comps.pop(), 'js_canvas_IO_docs', 'twat' )
+        #root_cache = Path('/').joinpath('js_canvas_IO_docs', comps.pop() )
+        #root_cache = Path('/').joinpath('js_canvas_IO_docs', str(comps.pop()) )
+        # root_cache = Path('js_canvas_IO_docs').joinpath(str(comps.pop()) )
+        # print(f"  '{root_cache}',")
+        #print(f"ct:{cache_targets}<")
         print(f"  '/{repo_name}{cache_targets}',")
+       
+        
+        #print(f"  '/{cache_targets}',")
         paths.append(cache_targets)    
     
     print('];')
