@@ -22,4 +22,4 @@ navBarMod.addNavbutton(pageTracker.getButtonInfo(containers));
 navBarMod.addNavbutton(pageSnap.getButtonInfo(containers));
 navBarMod.addNavbutton(pageWeighIn.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaint.getButtonInfo(containers));
-navBarMod.addNavbutton(pageMathPaintCanvas.getButtonInfo(containers));
+//navBarMod.addNavbutton(pageMathPaintCanvas.getButtonInfo(containers));

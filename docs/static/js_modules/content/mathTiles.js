@@ -34,7 +34,6 @@ function resetMetrics() {
   rafLowWatermark = 10000;
   rafAveFrameTime = 0;
   rafBuckets = [];
-  rafEvents = 0;
 }
 
 const EQU_COLOR = 0;
@@ -327,11 +326,18 @@ const random = (max = 9, min = 0) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-
 var mathTilesKeepRunningAnimation = true;
 
+export const setKeepAnimRuning = () => {
+  mathTilesKeepRunningAnimation = true;
+};
+export const stopAnim = () => {
+  mathTilesKeepRunningAnimation = false;
+};
+
+
 //const mathTiles = ({ width = 400, height = 400, parent = document.body, count = 50 } = {}) => {
-const mathTiles = (targetContainer) => {
+export const startMathTiles = (targetContainer) => {
   const display = new Canvas(targetContainer);
   const [width, height] = display.getCanvasWH();  
   const mathTiles = [];  
@@ -398,4 +404,4 @@ const mathTiles = (targetContainer) => {
   });
 };
 
-mathTiles(document.getElementById('maths_paint'));
+//startMathTiles(document.getElementById('maths_paint'));

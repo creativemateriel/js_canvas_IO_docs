@@ -1,18 +1,18 @@
-// Ex create a module that implements a page behaviour by clicking a button in the navbar
+// Ex create a module that implements a page behavior by clicking a button in the navbar
 
-// Eventually be code from:  <script src='static/nutrient_traffic_lights.js'></script>
-  //<script>      
-  //  var recipes = {{ recipes|tojson }};       // convert info using tojson filter      
-  //  console.log(`recipe_t JS ${recipes[0]['ri_name']} - inline CONCLUDED`);  // sanity check      
-  //</script>
+// navbar generic
 import {getCurrentPage, setCurrentPage, setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
-  
+
+// specifics to page
+import * as mt from './content/mathTiles.js';               // relative to this file
+var jsSource = 'static/js_modules/content/mathTiles.js';    // getting with fetch 
+var jsContainerId = 'maths_paint';      
+
 var pageTarget;
 var pageId = 'mathPaint_page';
 var htmlSource = 'static/html/mathPaint.html';
-var jsSource = 'static/js_modules/content/mathTiles.js';
-var jsContainerId = 'maths_paint';
 var buttonId = 'b_nav_math_tile';
+
 
 // tidy up when another button is pressed
 // maybe just hide page
@@ -26,9 +26,9 @@ function unload_page(idOfPressedButton) {
   console.log(`module_page_mathPaint.js: ${buttonId} - unloading: stop RAF calls JS: ${jsSource}`);    
   console.log('run mathTile.js resetRAFcallback: - S');
   
-  if (typeof(mathTiles) === 'function') {
-    mathTilesKeepRunningAnimation = false;
-    console.log(`run mathTile.js resetRAFcallback: ${typeof(mathTiles)} - E`);
+  if (typeof(mt.startMathTiles) === 'function') {
+    mt.stopAnim();
+    console.log(`run mathTile.js resetRAFcallback: ${typeof(mt.startMathTiles)} - E`);
   } else {
     console.log('run mathTile.js NOT LOADED! - E');
   }
@@ -69,11 +69,11 @@ function load_page() {
   
   console.log(`module_page_mathPaint.js: ${pageId} - loading JS: ${jsSource}`);
 
-  if (typeof(mathTiles) === 'function') {
+  if (typeof(mt.startMathTiles) === 'function') {
 
     console.log('mathTile.js ALREADY LOADED! restart animation');
-    mathTilesKeepRunningAnimation = true;
-    mathTiles(document.getElementById(jsContainerId));
+    mt.setKeepAnimRuning();     // must do before starting anim
+    mt.startMathTiles(document.getElementById(jsContainerId));
 
   } else {
 
@@ -84,7 +84,9 @@ function load_page() {
     .then(function(text) {    
       var script = document.createElement("script");
       script.innerHTML = text;
+      script.setAttribute("type", "module");
       document.getElementById(jsContainerId).appendChild(script);
+      mt.startMathTiles(document.getElementById(jsContainerId));
     });
     
   }  
