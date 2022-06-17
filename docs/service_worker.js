@@ -14,7 +14,7 @@ console.log('service_worker.js LOADING');
 // depends if you are using /docs/  or /master/
 // /js_canvas_IO_docs/
 
-let verion_numner_passed_in = '00';
+let verion_numner_passed_in = '00.01';
 
 const CACHE_NAME = `dtk-gitio-cache_${verion_numner_passed_in}`;  // TODO add version number for ServWrkr updates
 
