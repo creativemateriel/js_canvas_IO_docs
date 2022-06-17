@@ -1,6 +1,14 @@
 <style>
+  .container{
+    margin: 0px;
+  }
+  
   #pwa_page{
     margin: 0px;
   }
 
+  #pwa_navbar{
+    margin: 0px;
+  }
+  
 </style>

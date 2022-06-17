@@ -7,6 +7,8 @@ import * as pageSnap from './module_page_snap.js';
 import * as pageWeighIn from './module_page_weigh_in.js';
 import * as pageMathPaint from './module_page_mathPaint.js';
 import * as pageMathPaintCanvas from './module_page_mathPaintCanvas.js';
+import * as pageRandomTarget from './module_page_randomTarget.js';
+
 
 // TODO enforce load order - necessary?
 
@@ -23,3 +25,4 @@ navBarMod.addNavbutton(pageSnap.getButtonInfo(containers));
 navBarMod.addNavbutton(pageWeighIn.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaint.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaintCanvas.getButtonInfo(containers));
+navBarMod.addNavbutton(pageRandomTarget.getButtonInfo(containers));
