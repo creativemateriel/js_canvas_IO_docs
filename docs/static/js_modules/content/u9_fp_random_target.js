@@ -204,7 +204,7 @@ class Agent {
 
 }
 
-createpane();    
+createpane();
 canvasSketch(sketch, settings);
 
 cl('IMPORTED MODULE: algos_sftest');

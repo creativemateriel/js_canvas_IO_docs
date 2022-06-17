@@ -3,19 +3,19 @@
 //const random = require('canvas-sketch-util/random');
 //const Tweakpane = require('tweakpane');
 
-class Random {
-  range(min, max) {
-    if (min < max) {
-      let no = Math.random() * (max -  min);
-      return (min + no);
-    }
-    return undefined;
-  }
-}
+//class Random {
+//  range(min, max) {
+//    if (min < max) {
+//      let no = Math.random() * (max -  min);
+//      return (min + no);
+//    }
+//    return undefined;
+//  }
+//}
+//
+//var random = new Random;
 
-var random = new Random;
-
-//import {random} from './require_random.js';
+import {random} from './require_random.js';
 
 // helpers
 const cl = (str) => {
@@ -463,8 +463,8 @@ const settings = {
 
 const sketch = () => {
   
-  cl(`ME ${Walls.ME}`);
-  cl(this.fabricEnv);
+  //cl(`ME ${Walls.ME}`);
+  //cl(this.fabricEnv);
   
   fabric = new FabricState(params.fabricWidth, params.fabricHeight, params.cellSizeXY);
   
