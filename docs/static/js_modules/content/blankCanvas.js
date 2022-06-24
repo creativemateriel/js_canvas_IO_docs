@@ -107,12 +107,14 @@ const runAnimation = animation => {
 //};
 
 var animModuleKeepRunningAnimation = true;
+var tweakPaneContainerElement;
 
 export const setKeepAnimRuning = () => {
   animModuleKeepRunningAnimation = true;
 };
 export const stopAnim = () => {
   animModuleKeepRunningAnimation = false;
+  tweakPaneContainerElement.remove()
 };
 
 
@@ -120,7 +122,13 @@ export const stopAnim = () => {
 export const startPageAnimation = (targetContainer) => {
   const display = new Canvas(targetContainer);
   const [width, height] = display.getCanvasWH();
-  createpane();
+  createpane();  
+  tweakPaneContainerElement = document.querySelector("body > div.tp-dfwv");
+  let nabarElementHeight = document.querySelector("#pwa_navbar").offsetHeight;
+  let viewportHeight = window.innerHeight;
+  let viewportWidth = window.innerWidth;
+  let tpElementHeight = tweakPaneContainerElement.offsetHeight;
+  tweakPaneContainerElement.style.top = `${viewportHeight - tpElementHeight - nabarElementHeight}px`;
   
   //
   //
