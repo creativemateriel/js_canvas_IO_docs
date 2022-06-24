@@ -56,10 +56,10 @@ class Canvas {
   constructor(parent = document.body, width = settings.dimensions[0], height = settings.dimensions[1]) {
     console.log(`Canvas:\nparent: ${parent} - document.body:${document.body}`);
     this.canvas = document.createElement('canvas');
-    //this.canvas.width = window.innerWidth;
-    //this.canvas.height = window.innerHeight;
-    this.canvas.width = parent.innerWidth;
-    this.canvas.height = parent.innerHeight;
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    //this.canvas.width = parent.innerWidth;
+    //this.canvas.height = parent.innerHeight;
     parent.appendChild(this.canvas);
     this.context = this.canvas.getContext('2d');
   }
@@ -106,13 +106,13 @@ const runAnimation = animation => {
 //  return Math.floor(Math.random() * (max - min + 1) + min);
 //};
 
-var mathTilesKeepRunningAnimation = true;
+var animModuleKeepRunningAnimation = true;
 
 export const setKeepAnimRuning = () => {
-  mathTilesKeepRunningAnimation = true;
+  animModuleKeepRunningAnimation = true;
 };
 export const stopAnim = () => {
-  mathTilesKeepRunningAnimation = false;
+  animModuleKeepRunningAnimation = false;
 };
 
 
@@ -120,6 +120,7 @@ export const stopAnim = () => {
 export const startPageAnimation = (targetContainer) => {
   const display = new Canvas(targetContainer);
   const [width, height] = display.getCanvasWH();
+  createpane();
   
   //
   //
@@ -185,8 +186,7 @@ export const startPageAnimation = (targetContainer) => {
       cl(rafBuckets);                                                           //
     }
     
-    return mathTilesKeepRunningAnimation;
+    return animModuleKeepRunningAnimation;
   });
 };
 
-//startMathTiles(document.getElementById('maths_paint_canvas'));

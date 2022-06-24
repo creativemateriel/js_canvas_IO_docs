@@ -29,9 +29,9 @@ function unload_page(idOfPressedButton) {
   console.log(`module_page_mathPaint.js: ${buttonId} - unloading: stop RAF calls JS: ${jsSource}`);    
   console.log('run mathTile.js resetRAFcallback: - S');
   
-  if (typeof(tileModCanvas.startMathTiles) === 'function') {
+  if (typeof(tileModCanvas.startPageAnimation) === 'function') {
     tileModCanvas.stopAnim();
-    console.log(`run mathTile.js resetRAFcallback: ${typeof(tileModCanvas.startMathTiles)} - E`);
+    console.log(`run mathTile.js resetRAFcallback: ${typeof(tileModCanvas.startPageAnimation)} - E`);
   } else {
     console.log('run mathTile.js NOT LOADED! - E');
   }
@@ -71,11 +71,11 @@ function load_page() {
   console.log(`module_page_mathPaint.js: ${pageId} - loading JS: ${jsSource}`);
 
 
-  if (typeof(tileModCanvas.startMathTiles) === 'function') {
+  if (typeof(tileModCanvas.startPageAnimation) === 'function') {
 
     console.log('mathTile.js ALREADY LOADED! restart animation');
     tileModCanvas.setKeepAnimRuning();     // must do before starting anim
-    tileModCanvas.startMathTiles(document.getElementById(jsContainerId));
+    tileModCanvas.startPageAnimation(document.getElementById(jsContainerId));
 
   } else {
 
@@ -88,7 +88,7 @@ function load_page() {
       script.innerHTML = text;
       script.setAttribute("type", "module");
       document.getElementById(jsContainerId).appendChild(script);
-      tileModCanvas.startMathTiles(document.getElementById(jsContainerId));
+      tileModCanvas.startPageAnimation(document.getElementById(jsContainerId));
     });
     
   }   
