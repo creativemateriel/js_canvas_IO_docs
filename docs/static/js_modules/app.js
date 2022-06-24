@@ -9,7 +9,7 @@ import * as pageMathPaint from './module_page_mathPaint.js';
 import * as pageMathPaintCanvas from './module_page_mathPaintCanvas.js';
 import * as pageRandomTarget from './module_page_randomTarget.js';
 import * as pageDiffusion from './module_page_diffusion.js';
-
+import * as pageFlock from './module_page_flock.js';
 
 // TODO enforce load order - necessary?
 
@@ -28,3 +28,4 @@ navBarMod.addNavbutton(pageMathPaint.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaintCanvas.getButtonInfo(containers));
 navBarMod.addNavbutton(pageRandomTarget.getButtonInfo(containers));
 navBarMod.addNavbutton(pageDiffusion.getButtonInfo(containers));
+navBarMod.addNavbutton(pageFlock.getButtonInfo(containers));
