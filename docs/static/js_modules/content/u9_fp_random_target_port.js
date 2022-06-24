@@ -210,13 +210,15 @@ const runAnimation = animation => {
 //  return Math.floor(Math.random() * (max - min + 1) + min);
 //};
 
-var mathTilesKeepRunningAnimation = true;
+var animModuleKeepRunningAnimation = true;
+var tweakPaneContainerElement;
 
 export const setKeepAnimRuning = () => {
-  mathTilesKeepRunningAnimation = true;
+  animModuleKeepRunningAnimation = true;
 };
 export const stopAnim = () => {
-  mathTilesKeepRunningAnimation = false;
+  animModuleKeepRunningAnimation = false;
+  tweakPaneContainerElement.remove()
 };
 
 
@@ -224,7 +226,8 @@ export const stopAnim = () => {
 export const startPageAnimation = (targetContainer) => {
   const display = new Canvas(targetContainer);
   const [width, height] = display.getCanvasWH();
-  createpane();
+  createpane();  
+  tweakPaneContainerElement = document.querySelector("body > div.tp-dfwv > div > div");
   
   //
   //
@@ -362,7 +365,7 @@ export const startPageAnimation = (targetContainer) => {
       cl(rafBuckets);                                                           //
     }
     
-    return mathTilesKeepRunningAnimation;
+    return animModuleKeepRunningAnimation;
   });
 };
 
