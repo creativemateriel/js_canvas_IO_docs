@@ -1,7 +1,11 @@
+// use in conjunction with module_page_blank.js 
 // helpers
 const cl = (str) => {
   console.log(str);
 };
+
+//import * as algos from './lib/algos_sftest.js';
+//import {random, math} from './require_random.js';
 
 // paint metrics
 var rafCount = 0;
