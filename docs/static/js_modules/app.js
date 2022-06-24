@@ -8,6 +8,7 @@ import * as pageWeighIn from './module_page_weigh_in.js';
 import * as pageMathPaint from './module_page_mathPaint.js';
 import * as pageMathPaintCanvas from './module_page_mathPaintCanvas.js';
 import * as pageRandomTarget from './module_page_randomTarget.js';
+import * as pageDiffusion from './module_page_diffusion.js';
 
 
 // TODO enforce load order - necessary?
@@ -26,3 +27,4 @@ navBarMod.addNavbutton(pageWeighIn.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaint.getButtonInfo(containers));
 navBarMod.addNavbutton(pageMathPaintCanvas.getButtonInfo(containers));
 navBarMod.addNavbutton(pageRandomTarget.getButtonInfo(containers));
+navBarMod.addNavbutton(pageDiffusion.getButtonInfo(containers));
