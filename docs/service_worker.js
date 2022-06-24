@@ -14,7 +14,7 @@ console.log('service_worker.js LOADING');
 // depends if you are using /docs/  or /master/
 // /js_canvas_IO_docs/
 
-let verion_numner_passed_in = '00.01';
+let verion_numner_passed_in = '00.02';
 
 const CACHE_NAME = `dtk-gitio-cache_${verion_numner_passed_in}`;  // TODO add version number for ServWrkr updates
 
@@ -67,18 +67,34 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/html/snap.html',
   '/js_canvas_IO_docs/static/html/mathPaint.html',
   '/js_canvas_IO_docs/static/js_modules/module_page_snap.js',
+  '/js_canvas_IO_docs/static/js_modules/module_page_diffusion.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_mathPaint.js',
   '/js_canvas_IO_docs/static/js_modules/weigh_in.js',
   '/js_canvas_IO_docs/static/js_modules/navbarMod.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_home.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_tracker.js',
+  '/js_canvas_IO_docs/static/js_modules/module_page_flock.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_mathPaintCanvas.js',
   '/js_canvas_IO_docs/static/js_modules/dtk_storage.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_blank.js',
+  '/js_canvas_IO_docs/static/js_modules/module_page_randomTarget.js',
   '/js_canvas_IO_docs/static/js_modules/app.js',
   '/js_canvas_IO_docs/static/js_modules/module_page_weigh_in.js',
+  '/js_canvas_IO_docs/static/js_modules/content/u8_fp_flock.js',
+  '/js_canvas_IO_docs/static/js_modules/content/index.html',
+  '/js_canvas_IO_docs/static/js_modules/content/u9_fp_random_target.js',
+  '/js_canvas_IO_docs/static/js_modules/content/require_random.js',
   '/js_canvas_IO_docs/static/js_modules/content/mathTiles.js',
+  '/js_canvas_IO_docs/static/js_modules/content/u10_fp_math_functions.js',
+  '/js_canvas_IO_docs/static/js_modules/content/u7_fp_diffusion_port.js',
+  '/js_canvas_IO_docs/static/js_modules/content/u8_fp_flock_port.js',
+  '/js_canvas_IO_docs/static/js_modules/content/u7_fp_diffusion.js',
+  '/js_canvas_IO_docs/static/js_modules/content/u9_fp_random_target_port.js',
+  '/js_canvas_IO_docs/static/js_modules/content/blankCanvas.js',
   '/js_canvas_IO_docs/static/js_modules/content/mathTilesCanvas.js',
+  '/js_canvas_IO_docs/static/js_modules/content/lib/algos_sftest.js',
+  '/js_canvas_IO_docs/static/js_modules/content/lib/algos_sftest/index.js',
+  '/js_canvas_IO_docs/static/js_modules/content/lib/algos_sftest/package.json',
 ];
 
 
