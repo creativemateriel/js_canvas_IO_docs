@@ -14,7 +14,7 @@ console.log('service_worker.js LOADING');
 // depends if you are using /docs/  or /master/
 // /js_canvas_IO_docs/
 
-let verion_numner_passed_in = '00.02';
+let verion_numner_passed_in = '00.03';
 
 const CACHE_NAME = `dtk-gitio-cache_${verion_numner_passed_in}`;  // TODO add version number for ServWrkr updates
 
@@ -29,11 +29,17 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/favicon.ico',
   '/js_canvas_IO_docs/static/manifest.json',
   '/js_canvas_IO_docs/static/css/bootstrap.min.css',
+  '/js_canvas_IO_docs/static/css/recipe_dtk_multi.css',
   '/js_canvas_IO_docs/static/css/styles.css',
   '/js_canvas_IO_docs/static/css/weigh_in.css',
   '/js_canvas_IO_docs/static/images/s&p pork arancini.jpg',
   '/js_canvas_IO_docs/static/images/20170918_164301_banh_xeo.jpg',
+  '/js_canvas_IO_docs/static/images/20200528_163128_guinea fowl tagine w couscous & salad.jpg',
+  '/js_canvas_IO_docs/static/images/20200528_161914_green leaf & orange beet.jpg',
   '/js_canvas_IO_docs/static/images/mathPaint.png',
+  '/js_canvas_IO_docs/static/images/20200313_133803_couscous chermoula partner.jpg',
+  '/js_canvas_IO_docs/static/images/20200313_133803_chermoula.jpg',
+  '/js_canvas_IO_docs/static/images/20200313_133803_guinea fowl tagine.jpg',
   '/js_canvas_IO_docs/static/images/20200625_224208_kofte & couscous salad sandwich.jpg',
   '/js_canvas_IO_docs/static/images/svg/cog.svg',
   '/js_canvas_IO_docs/static/images/svg/home.svg',
@@ -60,6 +66,7 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/images/icons/icon-144x144.png',
   '/js_canvas_IO_docs/static/images/icons/icon-128x128.png',
   '/js_canvas_IO_docs/static/html/home.html',
+  '/js_canvas_IO_docs/static/html/recipe_dtk_multi.html',
   '/js_canvas_IO_docs/static/html/weigh_in.html',
   '/js_canvas_IO_docs/static/html/blank.html',
   '/js_canvas_IO_docs/static/html/recipe.html',
@@ -83,6 +90,7 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/js_modules/content/u8_fp_flock.js',
   '/js_canvas_IO_docs/static/js_modules/content/index.html',
   '/js_canvas_IO_docs/static/js_modules/content/u9_fp_random_target.js',
+  '/js_canvas_IO_docs/static/js_modules/content/recipe_dtk_multi.js',
   '/js_canvas_IO_docs/static/js_modules/content/require_random.js',
   '/js_canvas_IO_docs/static/js_modules/content/mathTiles.js',
   '/js_canvas_IO_docs/static/js_modules/content/u10_fp_math_functions.js',

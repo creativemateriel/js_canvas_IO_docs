@@ -1,8 +1,8 @@
 {
-  "name": "Github - PWA",
+  "name": "Algorithms - PWA",
   "short_name": "Algos",
-  "theme_color": "#C30085",
-  "background_color": "#7200C3",
+  "theme_color": "#020202",
+  "background_color": "#020202",
   "icons": [{
     "src": "images/icons/icon-128x128.png",
       "sizes": "128x128",
