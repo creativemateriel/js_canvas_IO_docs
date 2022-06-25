@@ -1,18 +1,18 @@
 // Ex create a module that implements a page behaviour by clicking a button in the navbar
 
-// Eventually be code from:  <script src='static/nutrient_traffic_lights.js'></script>
-  //<script>      
-  //  var recipes = {{ recipes|tojson }};       // convert info using tojson filter      
-  //  console.log(`recipe_t JS ${recipes[0]['ri_name']} - inline CONCLUDED`);  // sanity check      
-  //</script>
+// navbar generic
+import {getCurrentPage, setCurrentPage, setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
+
+// specifics to page
+import * as pageModule from './content/recipe_dtk_multi.js';
+var jsSource = 'static/js_modules/content/recipe_dtk_multi.js';
+var jsContainerId = 'tracker_page';
+
 var pageTarget;
 var pageId = 'tracker_page_parent';
-var htmlSource = 'static/html/tracker.html';
-var jsSource = '';//'static/js_modules/content/mathTiles.js';
-var jsContainerId = 'tracker_page';
+//var htmlSource = 'static/html/tracker.html';
 var buttonId = 'b_nav_tracker';
 
-import {getCurrentPage, setCurrentPage, setUnloadCurrentPageCallback, createHTMLPageContainer} from './navbarMod.js';
 
 // tidy up when another button is pressed
 // maybe just hide page
@@ -37,21 +37,39 @@ function load_page() {
     setCurrentPage(buttonId);
   }
   
-  console.log(`module_page_tracker.js: ${pageId} - loading: ${htmlSource}`);
-  
   setUnloadCurrentPageCallback(unload_page);
   
-  fetch(htmlSource)
-  .then(function(response) {
-    return response.text();
-  })
-  .then(function(body) {
-    document.getElementById(pageTarget).innerHTML = body;
-  });
+  //fetch(htmlSource)
+  //.then(function(response) {
+  //  return response.text();
+  //})
+  //.then(function(body) {
+  //  document.getElementById(pageTarget).innerHTML = body;
+  //});
   
   // construct page from JS land - very simple container
-  //console.log(`module: ${pageId} - constructing html`);
-  //createHTMLPageContainer(pageTarget, pageId, jsContainerId, '');  
+  console.log(`module: ${pageId} - constructing html`);
+  createHTMLPageContainer(pageTarget, pageId, jsContainerId, '');
+  
+  /* JS is imported at the top is the even necessary - TODO REMOVE - test */  
+  if (typeof(pageModule.loadDTKRecipe) === 'function') {
+    console.log(`module: ${pageId} - JS ALREADY LOADED`);    
+  } else {
+
+    fetch(jsSource)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(text) {    
+      var script = document.createElement("script");
+      script.innerHTML = text;
+      script.setAttribute("type", "module");
+      document.getElementById(jsContainerId).appendChild(script);     
+    });    
+  }
+  
+  //pageModule.loadDTKRecipe(pageId, 'squid stuffed w chicken and spinach');
+  pageModule.loadDTKRecipe(jsContainerId); 
 }
 
 export function getButtonInfo(containers){

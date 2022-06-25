@@ -27,13 +27,13 @@ export function getCurrentPage(){
 //</div>
 export function createHTMLPageContainer(pageTarget, pageId, jsContainerId, dbg_txt=''){
   var parent = document.createElement("div");
-  parent.classList.add("container");
+  //parent.classList.add("container");
   parent.id = pageId;  
   parent.text = dbg_txt;
   
   console.log(`adding ${jsContainerId} to: ${pageId}`);
   var page = document.createElement("div");
-  page.classList.add("container");
+  //page.classList.add("container");
   page.id = jsContainerId;
   parent.appendChild(page);
   
