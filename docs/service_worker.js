@@ -14,7 +14,7 @@ console.log('service_worker.js LOADING');
 // depends if you are using /docs/  or /master/
 // /js_canvas_IO_docs/
 
-let verion_numner_passed_in = '00.03';
+let verion_numner_passed_in = '00.04';
 
 const CACHE_NAME = `dtk-gitio-cache_${verion_numner_passed_in}`;  // TODO add version number for ServWrkr updates
 
@@ -37,10 +37,14 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/images/20200528_163128_guinea fowl tagine w couscous & salad.jpg',
   '/js_canvas_IO_docs/static/images/20200528_161914_green leaf & orange beet.jpg',
   '/js_canvas_IO_docs/static/images/mathPaint.png',
+  '/js_canvas_IO_docs/static/images/share-pwa-qr-code.png',
   '/js_canvas_IO_docs/static/images/20200313_133803_couscous chermoula partner.jpg',
+  '/js_canvas_IO_docs/static/images/JSCertLandScape.png',
   '/js_canvas_IO_docs/static/images/20200313_133803_chermoula.jpg',
   '/js_canvas_IO_docs/static/images/20200313_133803_guinea fowl tagine.jpg',
   '/js_canvas_IO_docs/static/images/20200625_224208_kofte & couscous salad sandwich.jpg',
+  '/js_canvas_IO_docs/static/images/JSCert.png',
+  '/js_canvas_IO_docs/static/images/JSCertCurriculum2.png',
   '/js_canvas_IO_docs/static/images/svg/cog.svg',
   '/js_canvas_IO_docs/static/images/svg/home.svg',
   '/js_canvas_IO_docs/static/images/svg/weigh_in.svg',
@@ -69,6 +73,7 @@ const FILES_TO_CACHE = [
   '/js_canvas_IO_docs/static/html/recipe_dtk_multi.html',
   '/js_canvas_IO_docs/static/html/weigh_in.html',
   '/js_canvas_IO_docs/static/html/blank.html',
+  '/js_canvas_IO_docs/static/html/cert.html',
   '/js_canvas_IO_docs/static/html/recipe.html',
   '/js_canvas_IO_docs/static/html/tracker.html',
   '/js_canvas_IO_docs/static/html/snap.html',
