@@ -62,9 +62,9 @@ export function getButtonInfo(containers){
   var buttonInfo = {};
 
   buttonInfo.callback = load_page;
-  buttonInfo.image    = 'static/images/svg/weigh_in.svg'; // or '' < will use text if no image
+  buttonInfo.image    = ''; //'static/images/svg/weigh_in.svg'; // or '' < will use text if no image
   buttonInfo.alt      = 'weigh in';
-  buttonInfo.text     = 'WI';
+  buttonInfo.text     = 'SHARE';
   buttonInfo.id       =  buttonId;
   
   return buttonInfo;

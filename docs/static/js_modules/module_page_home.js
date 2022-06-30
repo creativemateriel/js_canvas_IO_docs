@@ -7,7 +7,7 @@
   //</script>
 var pageTarget;
 var pageId = 'home_page_parent';
-var htmlSource = 'static/html/home.html';
+var htmlSource = 'static/html/cert.html';
 var jsSource = '';//'static/js_modules/content/mathTiles.js';
 var jsContainerId = 'home_page';
 var buttonId = 'b_nav_home';
@@ -63,9 +63,9 @@ export function getButtonInfo(containers){
   var buttonInfo = {};
 
   buttonInfo.callback = load_page;
-  buttonInfo.image    = 'static/images/svg/home.svg'; // or '' < will use text if no image
+  buttonInfo.image    = '';'static/images/svg/home.svg'; // or '' < will use text if no image
   buttonInfo.alt      = 'nutritable';
-  buttonInfo.text     = 'NT';
+  buttonInfo.text     = 'Certification';
   buttonInfo.id       =  buttonId;
   
   return buttonInfo;

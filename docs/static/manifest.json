@@ -1,8 +1,8 @@
 {
-  "name": "Algorithms - PWA",
-  "short_name": "Algos",
-  "theme_color": "#020202",
-  "background_color": "#020202",
+  "name": "PWA Application Test",
+  "short_name": "PWA Test",
+  "theme_color": "#333333",
+  "background_color": "#333333",
   "icons": [{
     "src": "images/icons/icon-128x128.png",
       "sizes": "128x128",

@@ -1,3 +1,4 @@
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@200&display=swap');
 
@@ -194,7 +195,7 @@ table.nutrinfo-table th {
 table.nutrinfo-table td:nth-child(1) {                      /*  |  */
     width: 134px;                                           /*  < col width 120px but off set pushed text into next column */
 }
-
+</style>
 
 /* ^^ Above CSS is from recipe_dtk_multi.css */
 
@@ -215,6 +216,26 @@ table.nutrinfo-table td:nth-child(1) {                      /*  |  */
   #pwa_navbar{
     margin: 0px;
     margin-bottom: 5px;
+  }
+  
+  .cert {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .share-pwa-qr-code {
+    margin: 10px;
+    padding: 50px;    
+  }
+  
+  .share-text {
+    display: block;
+    text-align: center;
+  }
+
+  .fcc-link {
+    display: block;
+    text-align: center;
   }
   
 </style>
