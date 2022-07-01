@@ -74,6 +74,12 @@ class Vector {
   div(d) {
     return new Vector(this.x/d, this.y/d, this.z/d); 
   }
+  
+  decFloorZero() {
+    if (this.x > 0) this.x -= 1;
+    if (this.y > 0) this.y -= 1;
+    if (this.z > 0) this.z -= 1;
+  }
 
   // average list of vectors  
   static average (lVec) {
@@ -255,6 +261,7 @@ class Boid {
     this.id = id;
     this.nearest = [];
     this.lead = false;
+    this.deBounce = new Vector(0,0,0); //new Vector(x,y,z);
     birdsCreated += 1;    // make class var?    
   }
   
@@ -294,9 +301,14 @@ class Boid {
   bounce() {
     if (this.lead) {
       const shrink = params.leadBoidConfinement;
-      if (this.pos.x <= shrink || this.pos.x >= this.scene.x - shrink) this.vel.x *= -1;  //{this.vel.x *= -1; this.pos.x += this.vel.x;}
-      if (this.pos.y <= shrink || this.pos.y >= this.scene.y - shrink) this.vel.y *= -1;  //{this.vel.y *= -1; this.pos.y += this.vel.y;}
-      if (this.pos.z <= shrink || this.pos.z >= this.scene.z - shrink) this.vel.z *= -1;  //{this.vel.z *= -1; this.pos.z += this.vel.z;}    
+      if ((this.pos.x <= shrink || this.pos.x >= this.scene.x - shrink) && (this.deBounce.x === 0))
+        { this.vel.x *= -1; this.deBounce.x = 3; }
+      
+      if ((this.pos.y <= shrink || this.pos.y >= this.scene.y - shrink) && (this.deBounce.y === 0))
+        { this.vel.y *= -1; this.deBounce.y = 3; }
+      
+      if ((this.pos.z <= shrink || this.pos.z >= this.scene.z - shrink) && (this.deBounce.z === 0))
+        { this.vel.z *= -1; this.deBounce.z = 3; }      
       
     } else {
       if (this.pos.x <= 0 || this.pos.x >= this.scene.x) this.vel.x *= -1;
@@ -323,7 +335,8 @@ class Boid {
       this.pos.z += this.vel.z;
       this.enforceSafeDist();
       this.rad = this.radiusFromPos();
-    }     
+    }
+    this.deBounce.decFloorZero();
 	}
 
   speedLimit(){
@@ -500,7 +513,7 @@ const createpane = () => {
   folder = pane.addFolder({ title: 'Flock '});
   folder.addInput(params, 'rule1multiplier', { min: 0.01, max: 0.2, step: 0.01 });
   //folder.addInput(params, 'flockDensity', { min: 0, max: 1, step: 0.05 });
-  folder.addInput(params, 'nearestNeighbourEffect', { min: 2, max: 20, step: 1 });
+  folder.addInput(params, 'nearestNeighbourEffect', { min: 3, max: 20, step: 1 });
   folder.addInput(params, 'nNEffect');
   //folder.addInput(params, 'visualRangeEffect', { min: 1, max: 500, step: 5 });
   //folder.addInput(params, 'vREffect');
