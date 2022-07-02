@@ -53,43 +53,48 @@ var equA = [
             [ '#F4C300', 'sec(x)',                        (rad) => { return (1 / Math.cos(rad)) /20; } ],
             [ '#93832F', 'cos(sin(x)^4)',                 (rad) => { return Math.cos(Math.pow(4, Math.sin(rad))); } ],
             [ '#3D2409', 'f(x)',                          (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /3 + (Math.sin(rad*10)/4); }  ],
-            [ '#F4EC00', 'tan(x)',                        (rad) => { return Math.tan(rad); } ],
-            [ '#99650D', 'sin(x)',                        (rad) => { return Math.sin(rad); } ],
-            [ '#E89E00', 'cos(x)',                        (rad) => { return Math.cos(rad); } ],            
-            [ '#5E2100', 'sin(sin(x)^8)',                 (rad) => { return Math.sin(Math.pow(8, Math.sin(rad))); } ],
-            [ '#600000', '(sqrt(x)/x + sqrt(x)/2) / 5',   (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /5; } ],
-            [ '#630E32', 'floor((sin(rad) * 5) +1) / 5))',(rad) => { return (Math.floor((Math.sin(rad) * 5) +1) /5); } ],
-            [ '#840919', 'sin(rad) + cos(rad)/4',         (rad) => { return Math.sin(rad) + Math.cos(rad*4)/4; } ],
-            [ '#AA842A', 'sin(x*10)',                     (rad) => { return Math.sin(rad*10); } ],
-            [ '#C17700', 'sin(x)+cos(rad*10)/4',          (rad) => { return Math.sin(rad)+Math.cos(rad*10)/4; } ],
-            [ '#F4C300', 'sec(x)',                        (rad) => { return (1 / Math.cos(rad)) /20; } ],
-            [ '#93832F', 'cos(sin(x)^4)',                 (rad) => { return Math.cos(Math.pow(4, Math.sin(rad))); } ],
-            [ '#3D2409', 'f(x)',                          (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /3 + (Math.sin(rad*10)/4); }  ],
-            [ '#F4EC00', 'tan(x)',                        (rad) => { return Math.tan(rad); } ],
-            [ '#99650D', 'sin(x)',                        (rad) => { return Math.sin(rad); } ],
-            [ '#E89E00', 'cos(x)',                        (rad) => { return Math.cos(rad); } ],            
-            [ '#5E2100', 'sin(sin(x)^8)',                 (rad) => { return Math.sin(Math.pow(8, Math.sin(rad))); } ],
-            [ '#600000', '(sqrt(x)/x + sqrt(x)/2) / 5',   (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /5; } ],
-            [ '#630E32', 'floor((sin(rad) * 5) +1) / 5))',(rad) => { return (Math.floor((Math.sin(rad) * 5) +1) /5); } ],
-            [ '#840919', 'sin(rad) + cos(rad)/4',         (rad) => { return Math.sin(rad) + Math.cos(rad*4)/4; } ],
-            [ '#AA842A', 'sin(x*10)',                     (rad) => { return Math.sin(rad*10); } ],
-            [ '#C17700', 'sin(x)+cos(rad*10)/4',          (rad) => { return Math.sin(rad)+Math.cos(rad*10)/4; } ],
-            [ '#F4C300', 'sec(x)',                        (rad) => { return (1 / Math.cos(rad)) /20; } ],
-            [ '#93832F', 'cos(sin(x)^4)',                 (rad) => { return Math.cos(Math.pow(4, Math.sin(rad))); } ],
-            [ '#3D2409', 'f(x)',                          (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /3 + (Math.sin(rad*10)/4); }  ],
-            [ '#F4EC00', 'tan(x)',                        (rad) => { return Math.tan(rad); } ],
-            [ '#99650D', 'sin(x)',                        (rad) => { return Math.sin(rad); } ],
-            [ '#E89E00', 'cos(x)',                        (rad) => { return Math.cos(rad); } ],            
-            [ '#5E2100', 'sin(sin(x)^8)',                 (rad) => { return Math.sin(Math.pow(8, Math.sin(rad))); } ],
-            [ '#600000', '(sqrt(x)/x + sqrt(x)/2) / 5',   (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /5; } ],
-            [ '#630E32', 'floor((sin(rad) * 5) +1) / 5))',(rad) => { return (Math.floor((Math.sin(rad) * 5) +1) /5); } ],
-            [ '#840919', 'sin(rad) + cos(rad)/4',         (rad) => { return Math.sin(rad) + Math.cos(rad*4)/4; } ],
-            [ '#AA842A', 'sin(x*10)',                     (rad) => { return Math.sin(rad*10); } ],
-            [ '#C17700', 'sin(x)+cos(rad*10)/4',          (rad) => { return Math.sin(rad)+Math.cos(rad*10)/4; } ],
-            [ '#F4C300', 'sec(x)',                        (rad) => { return (1 / Math.cos(rad)) /20; } ],
-            [ '#93832F', 'cos(sin(x)^4)',                 (rad) => { return Math.cos(Math.pow(4, Math.sin(rad))); } ],
-            [ '#3D2409', 'f(x)',                          (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /3 + (Math.sin(rad*10)/4); }  ],
-            ];
+            
+            [ '#BC4254', 'tan(x*2)',                        (rad) => { return Math.tan(rad*2); } ],
+            [ '#9BBA7C', 'sin(x*2)',                        (rad) => { return Math.sin(rad*2); } ],
+            [ '#A2DD00', 'cos(x*2)',                        (rad) => { return Math.cos(rad*2); } ],            
+            [ '#005B27', 'sin(sin(x)^8)',                 (rad) => { return Math.sin(Math.pow(8, Math.sin(rad*2))); } ],
+            [ '#005E49', '(sqrt(x)/x + sqrt(x)/2) / 10',   (rad) => { return (Math.sqrt(rad)/rad + Math.sqrt(rad)/2) /5; } ],
+            [ '#0E4A60', 'floor((sin(rad) * 5) +1) / 5))',(rad) => { return (Math.floor((Math.sin(rad*2) * 5) +1) /5); } ],
+            [ '#094582', 'sin(rad) + cos(rad)/4',         (rad) => { return Math.sin(rad) + Math.cos(rad*8)/4; } ],
+            [ '#223389', 'sin(x*10)',                     (rad) => { return Math.sin(rad*5); } ],
+            [ '#4C0093', 'sin(x)+cos(rad*10)/4',          (rad) => { return Math.sin(rad)+Math.cos(rad*5)/4; } ],
+            [ '#D385C7', 'sec(x)',                        (rad) => { return (1 / Math.cos(rad*2)) /20; } ],
+            [ '#93832F', 'cos(sin(x)^4)',                 (rad) => { return Math.cos(Math.pow(2, Math.sin(rad*2))); } ],
+            [ '#D60052', 'f(x)',                          (rad) => { return (Math.floor((Math.sin(rad*2) * 5) +1) /5) + (Math.sin(rad*10)/4); }  ],
+            ];            
+
+const randomizeTiles = (tileArray) => {
+  let randomizedTileArray = Array();
+  let noElements = tileArray.length;
+  
+  //for (let i=0; i<noElements; i++) {
+  //  cl(`randomizeTiles: ${i} - ${tileArray[i][0]}`);
+  //}
+
+  for (let i=0; i<noElements; i++) {
+    let removeIdx = Math.floor(Math.random() * tileArray.length);
+    let element = tileArray.splice(removeIdx,1);
+    randomizedTileArray.push(element[0]);
+    cl(`rT: ${removeIdx} - ${tileArray.length} - ${element[0]}`);
+  }
+
+  //for (let i=0; i<noElements; i++) {
+  //  cl(`randomizeTiles: ${i} - ${randomizedTileArray[i]}`);
+  //}
+
+  return randomizedTileArray;
+}
+//cl('- - - - - - - - - - - - - - - - - - - - - - - - - - - - S');
+var equR = randomizeTiles(equA);
+//cl('- - - - - - - - - - - - - - - - - - - - - - - - - - - - M');
+//cl(equR);
+//cl('- - - - - - - - - - - - - - - - - - - - - - - - - - - - E');
+
 
 function getOptTileLayoutInfo(canvWidth, canvHeight, noOfXTiles, noOfYTiles, minSpace, fontSize=20) {
   // tiles should have a space between them and
@@ -326,6 +331,7 @@ const random = (max = 9, min = 0) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+
 var mathTilesKeepRunningAnimation = true;
 
 export const setKeepAnimRuning = () => {
@@ -349,9 +355,9 @@ export const startMathTiles = (targetContainer) => {
       mathTiles.push( new MathsTile(rectX * (size + spaceX) + (spaceX/2),   // centre w/ + (spaceX/2) offset
                                     rectY * (size + spaceY),
                                     size,
-                                    equA[cnt][EQU_EQUATION],
-                                    equA[cnt][EQU_TITLE],
-                                    equA[cnt][EQU_COLOR])
+                                    equR[cnt][EQU_EQUATION],
+                                    equR[cnt][EQU_TITLE],
+                                    equR[cnt][EQU_COLOR])
                      );
       cnt++;
       cl(`pX:${rectX * (size + spaceX)}, pY:${rectY * (size + spaceY)}, size:${size}, spcX-Y:${spaceX}-${spaceY}`);
